@@ -165,6 +165,7 @@ mongoose
   // app.use("/register",registerRouter)
 // app.use("/login",loginRouter)
 app.use("/boysProfile",BoysProfileRouter);
+
 app.use("/profile",ProfileRouter)
 app.use("/",(req,res)=>{
   res.send("matrimonial server working")
