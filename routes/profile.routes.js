@@ -22,6 +22,19 @@ ProfileRouter.get("/", async (req, res) => {
         res.status(500).json({ error: "Failed to fetch profiles." });
       }
   });
+
+  ProfileRouter.get("/:id", async (req, res) => {
+    try {
+      const {id} = req.params;
+      const profile = await Profile.findById(id);
+      if(!profile){
+        return res.status(404).json({error : `Profile Not Found.`})
+      }
+      res.status(200).json(profile)
+    } catch (error) {
+      res.status(500).json({error : `Failed To Fetch Profiles`})
+    }
+  });
   
 
 module.exports = ProfileRouter;
